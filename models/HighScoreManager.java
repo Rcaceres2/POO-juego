@@ -84,7 +84,6 @@ public class HighScoreManager {
     }
 
     private static File resolveScoresFile() {
-        // Crea y apunta a la carpeta "top scores" en la raíz del proyecto
         File dir = new File("top scores");
         if (!dir.exists()) {
             dir.mkdirs();
