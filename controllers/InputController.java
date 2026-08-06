@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 
 public class InputController implements KeyListener {
 
-    // Variables públicas de estado de teclas
     public boolean left = false;
     public boolean right = false;
     public boolean up = false;
@@ -14,7 +13,6 @@ public class InputController implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // No se utiliza
     }
 
     @Override
