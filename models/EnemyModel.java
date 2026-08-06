@@ -3,8 +3,8 @@ package models;
 import core.Constants;
 
 public class EnemyModel extends GameObject {
-    private int speed = 10;
-    private int horizontalSpeed = 15;
+    private int speed = 5;
+    private int horizontalSpeed = 5;
     private int horizontalDirection = 10;
 
     public EnemyModel(int x, int y) {
