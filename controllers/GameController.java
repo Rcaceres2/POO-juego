@@ -15,12 +15,10 @@ public class GameController {
         this.view = view;
         this.inputController = inputController;
 
-        // Vincular teclado a la vista
         this.view.addKeyListener(this.inputController);
         this.view.setFocusable(true);
         this.view.requestFocusInWindow();
 
-        // Game Loop a ~60 FPS (16 ms)
         this.timer = new Timer(16, e -> updateGame());
     }
 
@@ -46,7 +44,6 @@ public class GameController {
 
         PlayerModel player = model.getPlayer();
 
-        // Manejo de movimiento según teclas
         player.dx = 0;
         player.dy = 0;
 
@@ -55,13 +52,11 @@ public class GameController {
         if (inputController.up) player.dy -= 5;
         if (inputController.down) player.dy += 5;
 
-        // Disparo
         if (inputController.space) {
             model.getBullets().add(new BulletModel(player.getX() + player.getWidth() / 2 - 3, player.getY(), 8, -1));
-            inputController.space = false; // Disparo uno a la vez por pulsación
+            inputController.space = false; 
         }
 
-        // Actualizar posiciones de las estrellas
         for (java.awt.Point star : model.getStars()) {
             star.y += 2;
             if (star.y > core.Constants.HEIGHT) star.y = 0;
@@ -69,7 +64,6 @@ public class GameController {
 
         player.update();
 
-        // Actualizar proyectiles, enemigos y enemyTanks
         model.getBullets().removeIf(b -> {
             b.update();
             return b.getY() < -20;
@@ -94,12 +88,10 @@ public class GameController {
 
         checkCollisions();
 
-        // Redibujar la pantalla
         view.repaint();
     }
 
     private void checkCollisions() {
-        // Colisiones de Balas con Enemigos y Campanas
         java.util.Iterator<BulletModel> bIt = model.getBullets().iterator();
         while (bIt.hasNext()) {
             BulletModel b = bIt.next();
