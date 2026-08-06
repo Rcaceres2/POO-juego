@@ -3,9 +3,9 @@ package models;
 import core.Constants;
 
 public class EnemyModel extends GameObject {
-    private int speed = 5;
-    private int horizontalSpeed = 5;
-    private int horizontalDirection = 10;
+    private int speed = 3;
+    private int horizontalSpeed = 3;
+    private int horizontalDirection = 1;
 
     public EnemyModel(int x, int y) {
         super(x, y, 32, 32);
